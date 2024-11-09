@@ -4,35 +4,30 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Clone the repository
-                git 'https://github.com/username/webapp.git'
+                git 'https://github.com/ranipulgam/webapp.git' // replace with your GitHub repo URL
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                // Install Node.js dependencies
                 sh 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                // Run any build commands if needed (optional for a simple app)
                 echo 'Build complete'
             }
         }
 
         stage('Test') {
             steps {
-                // Run tests (if any)
                 sh 'npm test'
             }
         }
 
         stage('Deploy') {
             steps {
-                // Optionally, start the application after the build
                 sh 'npm start &'
                 echo 'Application started on http://localhost:3000'
             }
